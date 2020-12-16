@@ -1,0 +1,68 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <li class="nav-item">
+            <a href="add-four"  class="btn btn-primary align-right" routerLinkActive="active"> Nouveau Fournisseur</a>
+        </li>
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des Fournisseurs</h6>
+            
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Prenom</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">Telephone</th>
+                            <th class="text-center" scope="col">Action</th>
+                        
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">Prenom</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">Telephone</th>
+                            <th class="text-center" scope="col">Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let item of fournisseurs ">
+                            <th>{{item.id}}</th>
+                            <th>{{item.code}}</th>
+                            <th>{{item.prenom}}</th>
+                            <th>{{item.nom}}</th>
+                            <td>{{item.email}}</td>
+                            <th>{{item.adresse}}</th>
+                            <th>{{item.tel}}</th>
+                            
+                            <td>
+                                <button class="btn btn-primary"  (click)="updateFournisseur(item.id)">edit</button>
+                                <button class="btn btn-danger" (click)="deleteFournisseur(item.id)">delete</button>
+                               
+                            </td> 
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+

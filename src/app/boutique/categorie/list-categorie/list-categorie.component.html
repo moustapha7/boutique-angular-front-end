@@ -1,0 +1,59 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <li class="nav-item">
+            <a href="add-categorie"  class="btn btn-primary align-right" routerLinkActive="active"> Nouvelle Categorie</a>
+        </li>
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Liste des Categories</h6>
+            
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">libelle</th>
+                            <th scope="col">Ajouté Par</th>
+                            <th class="text-center" scope="col">Action</th>
+                        
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Code</th>
+                            <th scope="col">libelle</th>
+                            <th scope="col">Ajouté Par</th>
+                            <th class="text-center" scope="col">Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr *ngFor="let item of categories ">
+                            <th>{{item.id}}</th>
+                            <th>{{item.code}}</th>
+                            <td>{{item.libelle}}</td>
+                            <td>{{item.username}}</td>
+                            
+                            <td>
+                                <button class="btn btn-primary"  (click)="updateCategorie(item.id)">edit</button>
+                                <button class="btn btn-danger" (click)="deleteCategorie(item.id)">delete</button>
+                               
+                            </td> 
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+

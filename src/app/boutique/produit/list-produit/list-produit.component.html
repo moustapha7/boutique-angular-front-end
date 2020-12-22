@@ -44,7 +44,7 @@
                             <td>{{prod.libelle}}</td>
                             <td>{{prod.categorie.libelle}}</td>
                             <td>{{prod.prixUnitaire}}</td>
-                            <th> <img [src]="'http://localhost:8080/images/' + prod.imageUrl"></th>
+                            <th>   <img class="img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuu9Wxa-jNW-PMLe837uPgeGrZaU-PhfJKnQ&usqp=CAU" alt=""></th>
                             <td>
                                 <button class="btn btn-primary" (click)="updateProduit(prod.id)">edit</button>
                                 <button class="btn btn-danger" (click)="deleteProduit(prod.id)">delete</button>

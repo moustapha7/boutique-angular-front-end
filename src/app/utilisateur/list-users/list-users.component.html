@@ -17,6 +17,7 @@
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
+                            <th>Roles</th>
                             <th>Action</th>
                         
                         </tr>
@@ -26,8 +27,9 @@
                             <th>Id</th>
                             <th>Name</th>
                             <th>Username</th>
-                            <th>Email</th>                         
-                            <th>Action</th>
+                            <th>Email</th>  
+                            <th>Roles</th>                       
+                            <th>Action</th> 
                         </tr>
                     </tfoot>
                     <tbody>
@@ -36,9 +38,11 @@
                             <td>{{user.name}}</td>
                             <td>{{user.username}}</td>
                             <td>{{user.email}}</td> 
-                            
+                            <td>{{user.profileUser}}</td>   
+
                             <td >
-                                <button class="btn btn-warning"  (click)="userDetails(user.id)">details</button>
+                                <button  *ngIf="showAdminBoard || showUserBoard"  class="btn btn-warning"  (click)="userDetails(user.id)"> details </button>
+                                <button  *ngIf="showAdminBoard"  class="btn btn-danger" >delete</button>
                             </td> 
                         </tr>
                        
@@ -50,4 +54,3 @@
 
 </div>
 <!-- /.container-fluid -->
-

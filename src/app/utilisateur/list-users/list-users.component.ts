@@ -17,6 +17,7 @@ export class ListUsersComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   showUserBoard = false;
+  showClientBoard = false;
 
   private roles: string[];
 
@@ -28,6 +29,7 @@ export class ListUsersComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
     this.listUsers();
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
@@ -36,12 +38,12 @@ export class ListUsersComponent implements OnInit {
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
       this.showUserBoard = this.roles.includes('ROLE_USER');
+      this.showClientBoard = this.roles.includes('ROLE_CLIENT');
 
 
       this.username = user.username;
       
     }
-
     
   }
 

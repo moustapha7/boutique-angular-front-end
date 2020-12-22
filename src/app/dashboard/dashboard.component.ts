@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   showUserBoard = false;
+  showClientBoard = false;
   username: string;
 
   currentUser: any;
@@ -57,6 +58,7 @@ export class DashboardComponent implements OnInit {
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
       this.showUserBoard = this.roles.includes('ROLE_USER');
+      this.showClientBoard = this.roles.includes('ROLE_CLIENT');
 
 
       this.username = user.username;
@@ -150,4 +152,3 @@ export class DashboardComponent implements OnInit {
     window.location.reload();
   }
 }
-

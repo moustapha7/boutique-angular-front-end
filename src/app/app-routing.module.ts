@@ -25,6 +25,8 @@ import { UpdateFourComponent } from './boutique/fournisseur/update-four/update-f
 import { UpdateCategorieComponent } from './boutique/categorie/update-categorie/update-categorie.component';
 import { UpdateProduitComponent } from './boutique/produit/update-produit/update-produit.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { RegisterClientComponent } from './register-client/register-client.component';
+import { DetailProduitComponent } from './boutique/produit/detail-produit/detail-produit.component';
 
 
 
@@ -38,6 +40,7 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   
+  { path: 'register-client', component: RegisterClientComponent},
           
   
   { path: 'list-client', component: ListClientComponent },
@@ -53,6 +56,7 @@ const routes: Routes = [
   { path: 'list-produit', component: ListProduitComponent },
   {path: 'update-produit/:id', component: UpdateProduitComponent},
   { path: 'add-produit', component: AddProduitComponent },
+  {path: 'details-produit/:id', component: DetailProduitComponent},
   
 
   { path: 'add-categorie', component: AddCategorieComponent },
@@ -61,7 +65,6 @@ const routes: Routes = [
 
 
   { path: 'list-users', component: ListUsersComponent },
-
   { path: 'details-user/:id', component: DetailsUsersComponent },
 
 

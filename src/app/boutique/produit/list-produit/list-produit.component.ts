@@ -4,6 +4,7 @@ import { Categorie } from 'src/app/model/categorie';
 import { Produit } from 'src/app/model/produit';
 import { CategorieService } from 'src/app/services/categorie.service';
 import { ProduitService } from 'src/app/services/produit.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,14 +19,37 @@ export class ListProduitComponent implements OnInit {
   categorie: Categorie = new Categorie();
    categories: Categorie[];
    selectedCategorie : Categorie;
+   isLoggedIn = true;
 
+   private roles: string[];
+   showAdminBoard = false;
+   showModeratorBoard = false;
+   showUserBoard = false;
+   showClientBoard = false;
+   username: string;
 
-  constructor(private produitService :ProduitService, private router : Router, 
+  constructor(private produitService :ProduitService, private router : Router, private tokenStorageService: TokenStorageService,
     private categService: CategorieService) { }
 
   ngOnInit(): void {
     this.listProduits();
     this.getAllCategories();
+
+    this.isLoggedIn = !!this.tokenStorageService.getToken();
+
+    if (this.isLoggedIn) {
+      const user = this.tokenStorageService.getUser();
+      this.roles = user.roles;
+
+      this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
+      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showUserBoard = this.roles.includes('ROLE_USER');
+      this.showClientBoard = this.roles.includes('ROLE_CLIENT');
+
+
+      this.username = user.username;
+      
+    }
 
   }
 
@@ -51,6 +75,16 @@ export class ListProduitComponent implements OnInit {
 
     this.router.navigate(['update-produit', id]);
   }
+
+
+
+  produitDetails(id :number)
+	{
+    this.router.navigate(['details-produit',id]);
+	}
+
+
+
 
 
   deleteProduit(id :number)
@@ -85,5 +119,7 @@ export class ListProduitComponent implements OnInit {
 
 
   }
+
+
 
 }

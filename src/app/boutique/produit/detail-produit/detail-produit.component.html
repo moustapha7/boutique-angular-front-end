@@ -1,0 +1,40 @@
+<div class="row">
+
+    <div class="col-xl-8 col-lg-7">
+
+        <!-- Area Chart -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Détails du produit</h6>
+            </div>
+            <div class="card-body">
+
+                <div class="w3-card-4">
+                    <img class="img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuu9Wxa-jNW-PMLe837uPgeGrZaU-PhfJKnQ&usqp=CAU" alt="">
+                  </div> 
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                           <strong><h3>{{produit.libelle}}</h3></strong> 
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <h3>{{produit.prixUnitaire}} FCFA</h3>
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            <p> {{produit.categorie.libelle}} </p>
+                        </div>
+                        
+                    </div>
+                   
+                </div>
+               
+        
+            </div>
+            <div class="card-footer">
+                <a class="nav-link" href="list-produit">
+                    <i class="fas fa-sign-in-alt fa-sm fa-fw mr-2 text-gray-400"></i>retour
+                </a>
+                
+           </div> 
+        </div>
+</div>

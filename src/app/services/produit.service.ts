@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import {  switchMap, switchMapTo } from 'rxjs/operators';
 import { Produit } from '../model/produit';
 
 @Injectable({
@@ -11,6 +12,8 @@ export class ProduitService {
   public urlProduit: string = 'http://localhost:8080/api';
 
   private baseURL = 'http://localhost:8080/api/produits';
+
+  private urlImages = 'http://localhost:8080/api/uploadImage';
 
 
   
@@ -32,8 +35,51 @@ export class ProduitService {
 
   
 
-  createProduit(produit : Produit): Observable<Object> {
-    return this.httpClient.post<Produit[]>(`${this.baseURL}`, produit);
+  createProduit(produit : Produit, selectedImage?: File): Observable<Produit> {
+
+    let observable = of({});
+
+    if(selectedImage)
+    {
+      observable = observable.pipe(
+
+      switchMap(() => {
+
+        if(produit.imageUrl)
+        {
+          return this.httpClient.delete(`http://localhost:8080/images/${produit.imageUrl}`);
+        }
+        else{
+
+          return of({});
+
+        }
+      
+      }),
+      switchMap(() => {
+    
+          produit.imageUrl = this.randomStr();
+       
+        const formData: FormData = new FormData();
+        formData.append('pid', produit.imageUrl);
+        formData.append('file', selectedImage);
+      
+          return  this.httpClient.post(`http://localhost:8080/images`, formData, {
+            responseType : 'text'
+          });
+        
+        })
+      );
+     
+    }
+
+    return observable.pipe(
+      switchMap(() => {
+        return this.httpClient.post<Produit>(`${this.urlProduit}`, produit);
+      })
+    );
+  
+    
   }
 
   getProduitById(id : number) : Observable<Produit> {
@@ -46,6 +92,21 @@ export class ProduitService {
 
   deleteProduit(id : number) : Observable<Object> {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
+
+  private randomStr()
+  {
+    let result = '';
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for(let i = 0; i<14 ; i++)
+    {
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+
+    return result;
+
   }
   
 

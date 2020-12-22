@@ -8,5 +8,6 @@ export class Produit {
     libelle: string;
     prixUnitaire : number;
     categorie : Categorie;
+    imageUrl :string;
 
 }

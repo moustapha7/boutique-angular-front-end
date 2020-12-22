@@ -38,7 +38,8 @@
                             <td>{{user.email}}</td> 
                             
                             <td >
-                                <button class="btn btn-warning"  (click)="userDetails(user.id)">details</button>
+                                <button  *ngIf="showAdminBoard || showUserBoard"  class="btn btn-warning"  (click)="userDetails(user.id)"> details </button>
+                                <button  *ngIf="showAdminBoard"  class="btn btn-danger" >delete</button>
                             </td> 
                         </tr>
                        

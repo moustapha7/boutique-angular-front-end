@@ -20,10 +20,17 @@ export class AddProduitComponent implements OnInit {
    categories: Categorie[];
    selectedCategorie : Categorie;
 
+   selectedImage : File;
+
   constructor( private router : Router, private categService: CategorieService, private produitService : ProduitService) { }
 
   ngOnInit(): void {
     this.getAllCategories();
+  }
+
+  onFileChanged(event : Event)
+  {
+    this.selectedImage =(event.target as HTMLInputElement).files[0];
   }
 
   saveProduit()
@@ -31,7 +38,7 @@ export class AddProduitComponent implements OnInit {
 
 
       this.produit.categorie = this.selectedCategorie;
-      this.produitService.createProduit(this.produit).subscribe(
+      this.produitService.createProduit(this.produit, this.selectedImage).subscribe(
         result => {
           console.log(result);
         }

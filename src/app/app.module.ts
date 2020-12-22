@@ -29,6 +29,11 @@ import { UpdateCategorieComponent } from './boutique/categorie/update-categorie/
 import { UpdateClientComponent } from './boutique/client/update-client/update-client.component';
 import { UpdateFourComponent } from './boutique/fournisseur/update-four/update-four.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { RegisterClientComponent } from './register-client/register-client.component';
+import { DetailProduitComponent } from './boutique/produit/detail-produit/detail-produit.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { ListProductComponent } from './product/list-product/list-product.component';
+import { ExploreProductComponent } from './product/explore-product/explore-product.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +60,12 @@ import { UploadFileComponent } from './upload-file/upload-file.component';
     UpdateCategorieComponent,
     UpdateClientComponent,
     UpdateFourComponent,
-    UploadFileComponent
+    UploadFileComponent,
+    RegisterClientComponent,
+    DetailProduitComponent,
+    AddProductComponent,
+    ListProductComponent,
+    ExploreProductComponent
   ],
   imports: [
     BrowserModule,

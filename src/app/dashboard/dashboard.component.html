@@ -73,31 +73,31 @@
             </div>
     
               <!-- Nav Item - Tables -->
-              <li class="nav-item">
+              <li *ngIf="showAdminBoard || showUserBoard" class="nav-item">
                 <a class="nav-link" href="list-users" routerLink="list-users" >
                     <i class="fas fa-fw fa-table"></i>
                     <span>Utilisateurs</span></a>
             </li>
               <!-- Nav Item - Tables -->
-              <li class="nav-item">
+              <li *ngIf="showAdminBoard || showUserBoard || showClientBoard" class="nav-item">
                 <a class="nav-link" href="list-client" routerLink="list-client" >
                     <i class="fas fa-fw fa-table"></i>
                     <span>Clients</span></a>
             </li>
               <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            <li *ngIf="showAdminBoard || showUserBoard" class="nav-item">
                 <a class="nav-link" href="list-four" routerLink="list-four" >
                     <i class="fas fa-fw fa-table"></i>
                     <span>Fournisseurs</span></a>
             </li>
     
-            <li class="nav-item">
+            <li *ngIf="showAdminBoard || showUserBoard || showClientBoard" class="nav-item">
               <a class="nav-link" href="list-produit" routerLink="list-produit" >
                   <i class="fas fa-fw fa-table"></i>
                   <span>Produits</span></a>
             </li>
     
-            <li class="nav-item" >
+            <li  *ngIf="showAdminBoard || showUserBoard"  class="nav-item" >
               <a  class="nav-link" href="list-categorie" routerLink="list-categorie">
                   <i class="fas fa-fw fa-table"></i>
                   <span>Categories</span></a>
@@ -106,17 +106,28 @@
             <li class="nav-item" >
                 <a  class="nav-link" href="upload-file" routerLink="upload-file">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Filess</span></a>
-              </li>
+                    <span>Files</span></a>
+            </li>
+
+            <li class="nav-item" >
+                <a  class="nav-link" href="add-product" routerLink="add-product">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>add Product</span></a>
+            </li>
+
+            <li class="nav-item" >
+                <a  class="nav-link" href="list-product" routerLink="list-product">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>list Product</span></a>
+            </li>
+
+            <li class="nav-item" >
+                <a  class="nav-link" href="explore-product" routerLink="explore-product">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>explore Product</span></a>
+            </li>
     
           
-            <!-- Sidebar Message -->
-            <div class="sidebar-card">
-                <img class="sidebar-card-illustration mb-2" src="assets/assetstemplate/img/undraw_rocket.svg" alt="">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
-    
         </ul>
       </div>
       <!-- End of Sidebar -->
@@ -178,9 +189,25 @@
                               </form>
                           </div>
                       </li>
+
+                    <li class="nav-item">
+                        <a href="#">
+                            (0)
+                            <i class="fas fa-shopping-cart"></i>
+                            <span
+                                class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                <strong>Panier</strong>
+                            </span>                 
+                        </a>
+                    </li>
+
+                      
+                        
+                 
   
                       <!-- Nav Item - Alerts -->
                       <li class="nav-item dropdown no-arrow mx-1">
+                          
                           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class="fas fa-bell fa-fw"></i>
@@ -300,7 +327,10 @@
   
                       <!-- Nav Item - User Information -->
                       <div >
+                          
+                       
                           <li class="nav-item dropdown no-arrow">
+                            
                               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   <span class="mr-2 d-none d-lg-inline text-gray-600 small"><strong>{{currentUser.username}}</strong></span>
@@ -353,7 +383,7 @@
                   <div *ngIf="!!isLoggedIn"  class="row">
   
                       <!-- Earnings (Monthly) Card Example -->
-                      <div class="col-xl-2 col-md-6 mb-4">
+                      <div  class="col-xl-2 col-md-6 mb-4">
                           <div class="card border-left-primary shadow h-100 py-2">
                               <div class="card-body">
                                   <div class="row no-gutters align-items-center">

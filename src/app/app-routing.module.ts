@@ -25,6 +25,11 @@ import { UpdateFourComponent } from './boutique/fournisseur/update-four/update-f
 import { UpdateCategorieComponent } from './boutique/categorie/update-categorie/update-categorie.component';
 import { UpdateProduitComponent } from './boutique/produit/update-produit/update-produit.component';
 import { UploadFileComponent } from './upload-file/upload-file.component';
+import { RegisterClientComponent } from './register-client/register-client.component';
+import { DetailProduitComponent } from './boutique/produit/detail-produit/detail-produit.component';
+import { ListProductComponent } from './product/list-product/list-product.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { ExploreProductComponent } from './product/explore-product/explore-product.component';
 
 
 
@@ -37,6 +42,8 @@ const routes: Routes = [
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
+
+  { path: 'register-client', component: RegisterClientComponent },
   
           
   
@@ -53,6 +60,7 @@ const routes: Routes = [
   { path: 'list-produit', component: ListProduitComponent },
   {path: 'update-produit/:id', component: UpdateProduitComponent},
   { path: 'add-produit', component: AddProduitComponent },
+  {path: 'details-produit/:id', component: DetailProduitComponent},
   
 
   { path: 'add-categorie', component: AddCategorieComponent },
@@ -67,7 +75,24 @@ const routes: Routes = [
 
   { path: 'upload-file', component: UploadFileComponent },
 
+
+
+
+
+
+  {path: 'list-product', component : ListProductComponent},
+  {path: 'add-product', component : AddProductComponent},
+  {path: 'explore-product', component : ExploreProductComponent},
+
+
+
+
+
+
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+
+
 
 
   

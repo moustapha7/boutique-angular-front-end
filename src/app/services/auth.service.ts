@@ -50,40 +50,7 @@ export class AuthService {
     }, httpOptions);
   }
 
-  saveToken(jwt: string) {
-
-    localStorage.setItem('token',jwt);
-    this.jwt = jwt;
-    this.parseJWT();
-  }
-
-  parseJWT()
-  {
-    let jwtHelper =  new  JwtHelperService();
-    let objJWT = jwtHelper.decodeToken(this.jwt);
-    this.username = objJWT.obj;
-    this.roles =  objJWT.roles;
-  }
-
-  isAdmin()
-  {
-    return this.roles.indexOf('ADMIN')>0;
-  }
-
-  isUser()
-  {
-    return this.roles.indexOf('USER')>0;
-  }
-  
-  isAuthenticated()
-  {
-    return this.roles &&( this.isAdmin() || this.isUser());
-  }
-
-  loadToken(){
-   this.jwt = localStorage.getItem('token');
-   this.parseJWT();
-  }
+ 
 
 
 

@@ -24,7 +24,6 @@ import { UpdateClientComponent } from './boutique/client/update-client/update-cl
 import { UpdateFourComponent } from './boutique/fournisseur/update-four/update-four.component';
 import { UpdateCategorieComponent } from './boutique/categorie/update-categorie/update-categorie.component';
 import { UpdateProduitComponent } from './boutique/produit/update-produit/update-produit.component';
-import { UploadFileComponent } from './upload-file/upload-file.component';
 import { RegisterClientComponent } from './register-client/register-client.component';
 import { DetailProduitComponent } from './boutique/produit/detail-produit/detail-produit.component';
 
@@ -68,7 +67,6 @@ const routes: Routes = [
   { path: 'details-user/:id', component: DetailsUsersComponent },
 
 
-  { path: 'upload-file', component: UploadFileComponent },
 
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 

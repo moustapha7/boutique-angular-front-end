@@ -46,7 +46,7 @@ export class AppComponent {
     this.nombreProduits();
 
     this.currentUser = this.token.getUser();
-    this.authService.loadToken();
+   
   
 
 
@@ -62,7 +62,7 @@ export class AppComponent {
       this.showUserBoard = this.roles.includes('ROLE_USER');
 
 
-      this.username = user.username;
+
       
     }
 
@@ -80,21 +80,7 @@ export class AppComponent {
   }
 
 
-  isAdmin()
-  {
-    return this.authService.isAdmin();
-  }
-
-  isUser()
-  {
-    return this.authService.isUser();
-  }
-
-  isAuthenticated()
-  {
-    return this.authService.isAuthenticated();
-  }
-
+  
 
 
   nombreUsers()

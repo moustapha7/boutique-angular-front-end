@@ -21,11 +21,13 @@ export class AddCategorieComponent implements OnInit {
 
   saveCategorie()
   {
+    if(this.categorie.libelle != null)
+    {
     this.categorieService.createCategorie(this.categorie).subscribe(
       result =>
       {
       
-        if (this.categorie.id > 0) {
+        if (this.categorie.libelle != null) {
           Swal.fire({
             title: `categorie bien ajouté`,
             icon: 'success',
@@ -33,10 +35,29 @@ export class AddCategorieComponent implements OnInit {
             timer: 1500
           })
 
+        } else
+        {
+          Swal.fire({
+            title: `categorie non  enregistré`,
+            icon: 'warning',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
-        this.router.navigate(['list-categorie']);
+        this.router.navigate(['add-categorie']);
       }
     )
+
+  }
+  else
+  {
+    Swal.fire({
+      title: `categorie non  enregistré`,
+      icon: 'warning',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
     
 
   }

@@ -28,7 +28,6 @@ import { UpdateProduitComponent } from './boutique/produit/update-produit/update
 import { UpdateCategorieComponent } from './boutique/categorie/update-categorie/update-categorie.component';
 import { UpdateClientComponent } from './boutique/client/update-client/update-client.component';
 import { UpdateFourComponent } from './boutique/fournisseur/update-four/update-four.component';
-import { UploadFileComponent } from './upload-file/upload-file.component';
 import { RegisterClientComponent } from './register-client/register-client.component';
 import { DetailProduitComponent } from './boutique/produit/detail-produit/detail-produit.component';
 
@@ -57,7 +56,7 @@ import { DetailProduitComponent } from './boutique/produit/detail-produit/detail
     UpdateCategorieComponent,
     UpdateClientComponent,
     UpdateFourComponent,
-    UploadFileComponent,
+
     RegisterClientComponent,
     DetailProduitComponent
   ],

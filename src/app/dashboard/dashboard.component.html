@@ -1,5 +1,5 @@
 <div id="app">
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <a href="#" class="navbar-brand">bezKoder</a>
       <ul class="navbar-nav mr-auto" routerLinkActive="active">
         <li class="nav-item">
@@ -30,14 +30,13 @@
           <a href="/profile" class="nav-link" routerLink="profile">Profil</a>
         </li>
         <li class="nav-item">
-          <a href class="nav-link" (click)="logout()">
-            LogOut
-            
-          </a>
+            <a href class="nav-link" (click)="logout()">
+                LogOut 
+            </a>
         </li>
         
       </ul>
-    </nav>
+    </nav> 
   
        <!-- Page Wrapper -->
        <div id="wrapper" >
@@ -103,13 +102,7 @@
                     <span>Categories</span></a>
               </li>
   
-              <li class="nav-item" >
-                  <a  class="nav-link" href="upload-file" routerLink="upload-file">
-                      <i class="fas fa-fw fa-table"></i>
-                      <span>Files</span></a>
-              </li>
-  
-           
+            
             
           </ul>
         </div>
@@ -321,7 +314,7 @@
                                         src="assets/assetstemplate/img/undraw_profile.svg">
                                 </a>
                                 <!-- Dropdown - User Information -->
-                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                <div *ngIf="isLoggedIn" class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
                                     <a class="dropdown-item" href="profile"routerLink="profile"> 
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -336,7 +329,7 @@
                                         Activity Log
                                     </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <a class="dropdown-item" (click)="logout()" data-toggle="modal" data-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400">LOGOUT</i>
                                         <!-- <button class="btn btn-secondary" (click)="logout()">Se déconnecter</button> -->
                                     </a>
@@ -508,7 +501,7 @@
     </a>
     
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -526,4 +519,4 @@
             </div>
         </div>
     </div>
-    
+     -->

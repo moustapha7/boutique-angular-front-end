@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
     this.nombreProduits();
 
     this.currentUser = this.token.getUser();
-    this.authService.loadToken();
+  
   
 
 
@@ -76,22 +76,6 @@ export class DashboardComponent implements OnInit {
     console.log(this.loggedUser);
     return this.loggedUser;
    
-  }
-
-
-  isAdmin()
-  {
-    return this.authService.isAdmin();
-  }
-
-  isUser()
-  {
-    return this.authService.isUser();
-  }
-
-  isAuthenticated()
-  {
-    return this.authService.isAuthenticated();
   }
 
 
